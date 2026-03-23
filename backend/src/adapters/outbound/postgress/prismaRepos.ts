@@ -34,18 +34,18 @@ export const bankRepo = {
       where: { shipId, year }
     });
 
-    return records.reduce((sum, r) => sum + r.amount, 0);
+    return records.reduce((sum, r) => sum + r.amountGco2eq, 0);
   },
 
   async addBank(shipId: string, year: number, amount: number) {
     return prisma.bankEntry.create({
-      data: { shipId, year, amount }
+      data: { shipId, year, amountGco2eq: amount }
     });
   },
 
   async applyBank(shipId: string, year: number, amount: number) {
     return prisma.bankEntry.create({
-      data: { shipId, year, amount: -amount }
+      data: { shipId, year, amountGco2eq: -amount }
     });
   }
 };  

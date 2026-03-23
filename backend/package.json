@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "db:setup": "prisma db push && prisma generate && ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
